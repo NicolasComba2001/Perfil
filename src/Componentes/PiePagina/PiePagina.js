@@ -139,7 +139,7 @@ export default function PiePagina() {
                 </figure>
             </section>
             <p className="text-[1.5em] text-[white] font-bold h-[50%]">NICOLAS COMBA</p>
-            <p className="text-[#12d1eb] text-[.9em] lg:text-[1.2em] w-max text-center m-4">Agradezco tu visita por mi sitio web. Espero haya sido de tu agrado, y cuando necesites algo no dudes en volver aquí.</p>
+            <p className="text-[#12d1eb] text-[.9em] lg:text-[1.2em] w-full md:w-max text-center m-4">Agradezco tu visita por mi sitio web. Espero haya sido de tu agrado, y cuando necesites algo no dudes en volver aquí.</p>
             <p className="text-[#ea580c] text-[.8em] justify-self-end">2022 © WebsArg. All rights reserved.</p>
         </article>
     </footer>
