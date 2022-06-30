@@ -15,7 +15,7 @@ export default function TarjetaServicio({imagen, titulo, descripcion}){
             h-[50%]
 
             '>
-                <img src={imagen} alt={titulo} className="w-full h-full object-cover rounded" />
+                <img loading='lazy' src={imagen} alt={titulo} className="w-full h-full object-cover rounded" />
             </figure>
             <article className='
             h-[50%]

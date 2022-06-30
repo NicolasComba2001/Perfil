@@ -54,7 +54,7 @@ export default function PiePagina() {
                         w-10
                         mr-2
                         ">
-                        <img className="w-10 h-full object-cover" src="./imagenes/contacto/mensajecontacto.webp" alt="" />
+                        <img loading="lazy" className="w-10 h-full object-cover" src="./imagenes/contacto/mensajecontacto.webp" alt="Icono de mensaje, contactame." />
                         </figure>
                         <section className="w-full">
                             <p className="text-[1.1em] text-white lg:text-[1.2em]">Escribeme</p>
@@ -68,7 +68,7 @@ export default function PiePagina() {
                         h-10
                         mr-2
                         ">
-                        <img className="w-full h-full object-cover" src="./imagenes/contacto/ubicacion.png" alt="" />
+                        <img loading="lazy" className="w-full h-full object-cover" src="./imagenes/contacto/ubicacion.png" alt="Icono de ubicacion de google, encuentrame." />
                         </figure>
                         <section className="w-full">
                             <p className="text-[1.1em] text-white lg:text-[1.2em]">Encuentrame</p>
@@ -93,7 +93,7 @@ export default function PiePagina() {
                
                 ">
                     <a href="https://www.instagram.com/nicolascomba/" target={"_blank"} rel="noreferrer">
-                        <img className="
+                        <img loading="lazy" className="
                         hover:shadow-black hover:shadow-md
                         rounded
                         w-full
@@ -111,7 +111,7 @@ export default function PiePagina() {
                 
                 ">
                     <a href="https://www.facebook.com/nico.comba.50/" target={"_blank"} rel="noreferrer" >
-                        <img className="  
+                        <img loading="lazy" className="  
                         hover:shadow-black hover:shadow-md
                         rounded
                         w-full
@@ -129,7 +129,7 @@ export default function PiePagina() {
                 
                 ">
                     <a href="https://www.linkedin.com/in/nicolas-elias-comba-334324196/" target={"_blank"} rel="noreferrer">
-                        <img className="
+                        <img loading="lazy" className="
                         rounded
                         hover:shadow-black hover:shadow-md
                         w-full
@@ -139,7 +139,8 @@ export default function PiePagina() {
                 </figure>
             </section>
             <p className="text-[1.5em] text-[white] font-bold h-[50%]">NICOLAS COMBA</p>
-            <p className="text-[#ea580c] text-[.8em] justify-self-end">2022 WebsArg. All rights reserved.</p>
+            <p className="text-[#12d1eb] text-[.9em] lg:text-[1.2em] w-max text-center m-4">Agradezco tu visita por mi sitio web. Espero haya sido de tu agrado, y cuando necesites algo no dudes en volver aquí.</p>
+            <p className="text-[#ea580c] text-[.8em] justify-self-end">2022 © WebsArg. All rights reserved.</p>
         </article>
     </footer>
   );

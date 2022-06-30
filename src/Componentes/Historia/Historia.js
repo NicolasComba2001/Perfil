@@ -32,7 +32,7 @@ export default function Historia() {
           h-full
           object-cover
           rounded
-          " src="./imagenes/historia/fondohistoria.jpg" alt="" />
+          " src="./imagenes/historia/fondohistoria.jpg" alt="Imagen de computadora ilustrativa" loading="lazy" />
         </figure>
       </section>
 
@@ -82,7 +82,7 @@ export default function Historia() {
           md:text-[1.1em]
           ">FrontEnd Developer</p>
           <p className="text-[1em] text-[#ffff] w-4/5 text-center md:w-full md:text-left lg:text-[1.2em]">
-          ¡Hola! Soy Nicolas, desde mis 17 años de edad he estado interesado por el desarrollado web front-end, siendo así, mi principal objetivo estudiar todas y cada una de las tecnologías mas demandadas en el mundo del desarrollo web.
+          ¡Hola! Soy Nicolas, desde mis 17 años de edad he estado interesado por el desarrollado web front-end, siendo así, mi principal objetivo estudiar todas y cada una de las tecnologías más demandadas en el mundo del desarrollo web.
           </p>
           <Link className="mt-8 bg-[#ea580c] 2xl:w-80 p-2 rounded text-center
           cursor-pointer

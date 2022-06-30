@@ -42,7 +42,7 @@ export default function ListaProyectos({arrayProyectos}){
                         <div className='w-full absolute  bottom-[2%] flex justify-center items-center'>
                             <button className='text-center bg-[#ea580c] rounded-full p-1 animate-bounce'>&darr;</button>
                         </div>
-                        <img  className="w-full h-full object-cover rounded-md  " src={proyecto.imagenProyecto} alt={proyecto.nombreProyecto} />
+                        <img loading='lazy'  className="w-full h-full object-cover rounded-md" src={proyecto.imagenProyecto} alt={proyecto.nombreProyecto} />
                         <figcaption className="proyectosImagenes
                          rounded-md
                          
@@ -56,7 +56,8 @@ export default function ListaProyectos({arrayProyectos}){
                          ">
                             <h4 className='text-[#ffff] text-[1.5em] font-bold'>{proyecto.nombreProyecto}</h4>
                             <p className='w-[95%]  '>{proyecto.descripcionProyecto}</p>
-                            <a className='p-2 bg-[#121212] text-white rounded-md justify-self-end mb-1' href={proyecto.webProyecto} target="_blank" rel='noreferrer'>Sitio web</a>
+                            <a className={`p-2 bg-[#121212] text-white rounded-md justify-self-end mb-1 hover:scale-110
+                        hover:transition-transform hover:shadow-white hover:shadow-md ${proyecto.webProyecto === null ? 'cursor-not-allowed' : 'cursor-pointer'}`} href={proyecto.webProyecto} target="_blank" rel='noreferrer'>Sitio web</a>
                         </figcaption>
                     </figure>
                 ))}

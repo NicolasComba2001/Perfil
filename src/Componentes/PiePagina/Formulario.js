@@ -23,7 +23,7 @@ export default function Formulario(){
 
     const onSubmit = (data) => {
         
-        fetch("https://formsubmit.co/ajax/nicolaseliascomba_2001@hotmail.com", {
+        fetch("https://formsubmit.co/ajax/293828e4c1a57e45fe7e784b787502d4", {
     method: "POST",
     headers: { 
         'Content-Type': 'application/json',
@@ -82,6 +82,7 @@ export default function Formulario(){
                             
                             ${errors.nombre?.type === "required" && 'border-red-900 border-2' }
                             ${errors.nombre?.type === "pattern" && 'border-red-900 border-2' }
+                            ${errors.nombre?.type === "maxLength" && 'border-red-900 border-2' }
                             `}
                             {...register("nombre", { required: true, maxLength: 255, pattern: /^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$/})} type="text" placeholder="Tu nombre..." />
                             
@@ -115,6 +116,7 @@ export default function Formulario(){
                             
                             ${errors.email?.type === "required" && 'border-red-900 border-2'}
                             ${errors.email?.type === "pattern" && 'border-red-900 border-2'}
+                            ${errors.email?.type === "maxLength" && 'border-red-900 border-2' }
                             `}
                             {...register("email", { required: true, maxLength: 255, pattern: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/  })} type="text" placeholder="Tu E-mail" />
                             
@@ -151,6 +153,7 @@ export default function Formulario(){
 
                         ${errors.asunto?.type === "required" && 'border-red-900 border-2'}
                         ${errors.asunto?.type === "pattern" && 'border-red-900 border-2'}
+                        ${errors.asunto?.type === "maxLength" && 'border-red-900 border-2'}
                         `}
                         {...register("asunto", { required: true, maxLength: 155, pattern: /^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$/})} type="text" placeholder="Asunto" />
                         
@@ -187,15 +190,17 @@ export default function Formulario(){
                         
 
                         ${errors.mensaje?.type === "required" && 'border-red-900 border-2 '}
+                        ${errors.mensaje?.type === "maxLength" && 'border-red-900 border-2'}
                         `}
                         {...register("mensaje", { required: true, maxLength: 255})} 
                         placeholder="Escribe tu mensaje..."
                         ></textarea>
                         
                     </div>
-                        <input type="hidden" name="_autoresponse" value="Muchas gracias por el mensaje! Estare contigo cuanto antes."></input>
-                        <input type="submit" className={`w-28 m-2 p-2 text-white bg-[#ea580c] rounded cursor-pointer hover:bg-[#F18B3E]`}/>
-                        <span className={`opacity-0 text-lime-500 ${enviado && 'opacity-100'}`}>Tu mensaje ha sido enviado correctamente</span>
+                        
+                        <input type="submit" className={`w-28 m-2 p-2 text-white bg-[#ea580c] rounded cursor-pointer hover:bg-[#F18B3E] hover:scale-110
+                        hover:transition-transform hover:shadow-black hover:shadow-md`}/>
+                        <span className={`opacity-0 text-lime-500 z-50 ${enviado && 'opacity-100'}`}>Tu mensaje ha sido enviado correctamente</span>
         </form>
     );
 }
