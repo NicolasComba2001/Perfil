@@ -56,8 +56,8 @@ export default function ListaProyectos({arrayProyectos}){
                          ">
                             <h4 className='text-[#ffff] text-[1.5em] font-bold'>{proyecto.nombreProyecto}</h4>
                             <p className='w-[95%]  '>{proyecto.descripcionProyecto}</p>
-                            <a className={`p-2 bg-[#121212] text-white rounded-md justify-self-end mb-1 hover:scale-110
-                        hover:transition-transform hover:shadow-white hover:shadow-md ${proyecto.webProyecto === null ? 'cursor-not-allowed' : 'cursor-pointer'}`} href={proyecto.webProyecto} target="_blank" rel='noreferrer'>Sitio web</a>
+                            <a className={`p-2 bg-[#121212] text-white rounded-md justify-self-end mb-1 2xl:hover:scale-110
+                        2xl:hover:transition-transform 2xl:hover:shadow-white 2xl:hover:shadow-md ${proyecto.webProyecto === null ? '2xl:cursor-not-allowed' : '2xl:cursor-pointer'}`} href={proyecto.webProyecto} target="_blank" rel='noreferrer'>{proyecto.webProyecto === null ? "No sitio web" : "Sitio Web"}</a>
                         </figcaption>
                     </figure>
                 ))}
