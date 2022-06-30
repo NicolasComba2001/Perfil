@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 
 export default function Formulario(){
+    const [enviado, setEnviado] = useState(false);
     const { register, handleSubmit, formState,formState: { errors}, reset} = useForm();
 
     useEffect(()=>{
@@ -21,8 +22,32 @@ export default function Formulario(){
     },[formState, reset])
 
     const onSubmit = (data) => {
-       
-        console.log(data)};
+        
+        fetch("https://formsubmit.co/ajax/nicolaseliascomba_2001@hotmail.com", {
+    method: "POST",
+    headers: { 
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+    },
+    body: JSON.stringify({
+        name: "Portfolio formulario",
+        nombre: data.nombre,
+        email: data.email,
+        asunto: data.asunto,
+        mensaje: data.mensaje
+    }),
+})
+    .then(response => response.json())
+    .then(data => {
+        setEnviado(true)
+        setTimeout(() => {
+            setEnviado((estadoAnterior => !estadoAnterior))
+        }, 2200);
+    }
+        )
+    .catch(error => setEnviado(false));
+        
+    };
     return(
         <form className="flex flex-col m-1 md:w-[90%] md:m-auto md:mt-8
                 lg:w-[62%]
@@ -45,7 +70,7 @@ export default function Formulario(){
                         
                         ${errors.nombre && 'before:opacity-100 before:animate-ping'}
                         `}>
-                            <input  className={`
+                            <input name='nombre'  className={`
                             caret-[#FD6E04]
                             outline-none
                             text-white
@@ -56,8 +81,9 @@ export default function Formulario(){
                             
                             
                             ${errors.nombre?.type === "required" && 'border-red-900 border-2' }
+                            ${errors.nombre?.type === "pattern" && 'border-red-900 border-2' }
                             `}
-                            {...register("nombre", { required: true, maxLength: 255, pattern: /^[A-Za-z]+$/i  })} type="text" placeholder="Tu nombre..." />
+                            {...register("nombre", { required: true, maxLength: 255, pattern: /^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$/})} type="text" placeholder="Tu nombre..." />
                             
                         </div>
                         <div className={`w-[50%]  mb-1
@@ -77,7 +103,7 @@ export default function Formulario(){
                         
                         ${errors.email && 'before:opacity-100 before:animate-ping'}
                         `}>
-                            <input  className={`
+                            <input name='email' className={`
                             caret-[#FD6E04]
                             outline-none
                             text-white
@@ -88,6 +114,7 @@ export default function Formulario(){
                             
                             
                             ${errors.email?.type === "required" && 'border-red-900 border-2'}
+                            ${errors.email?.type === "pattern" && 'border-red-900 border-2'}
                             `}
                             {...register("email", { required: true, maxLength: 255, pattern: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/  })} type="text" placeholder="Tu E-mail" />
                             
@@ -111,7 +138,7 @@ export default function Formulario(){
                     
                     ${errors.asunto && 'before:opacity-100 before:animate-ping'}
                     `}>
-                        <input className={`
+                        <input name='asunto' className={`
                         caret-[#FD6E04]
                         outline-none
                         text-white
@@ -123,8 +150,9 @@ export default function Formulario(){
                         
 
                         ${errors.asunto?.type === "required" && 'border-red-900 border-2'}
+                        ${errors.asunto?.type === "pattern" && 'border-red-900 border-2'}
                         `}
-                        {...register("asunto", { required: true, maxLength: 155, pattern: /^[A-Za-z]+$/i })} type="text" placeholder="Asunto" />
+                        {...register("asunto", { required: true, maxLength: 155, pattern: /^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$/})} type="text" placeholder="Asunto" />
                         
                     </div>
                     <div className={`flex justify-center mb-1
@@ -145,7 +173,7 @@ export default function Formulario(){
                     
                     ${errors.mensaje && 'before:opacity-100 before:animate-ping'}
                     `}>
-                        <textarea className={`
+                        <textarea name='mensaje' className={`
                         caret-[#FD6E04]
                         outline-none
                         text-white
@@ -165,7 +193,9 @@ export default function Formulario(){
                         ></textarea>
                         
                     </div>
-                        <input type="submit" className="w-28 m-2 p-2 text-white bg-[#ea580c] rounded cursor-pointer"/>
+                        <input type="hidden" name="_autoresponse" value="Muchas gracias por el mensaje! Estare contigo cuanto antes."></input>
+                        <input type="submit" className={`w-28 m-2 p-2 text-white bg-[#ea580c] rounded cursor-pointer hover:bg-[#F18B3E]`}/>
+                        <span className={`opacity-0 text-lime-500 ${enviado && 'opacity-100'}`}>Tu mensaje ha sido enviado correctamente</span>
         </form>
     );
 }

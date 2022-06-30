@@ -54,14 +54,15 @@ export default function Presentacion() {
           hover:duration-500
           
           ">
-              <button className="text-[#ffff] text-center w-full 2xl:p-1.5
+              <a href="https://www.linkedin.com/in/nicolas-elias-comba-334324196/" target={"_blank"} rel="noreferrer nofollow" className="text-[#ffff] text-center w-full 2xl:p-1.5
               transition-colors
               font-bold
               duration-500
               hover:text-black
               hover:transition-colors
               hover:duration-500 
-              ">MAS INFO</button>
+              block
+              ">MAS INFO</a>
           </div>
         </section>
         <section className="">
